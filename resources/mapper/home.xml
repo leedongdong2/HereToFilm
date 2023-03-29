@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.HomeMapper">
+
+<select id="HomeVideoList" resultType="vo.HomeVo">
+SELECT
+	SERIAL,
+	VIDEO_ORDER,
+	VIDEO_TITLE,
+	VIDEO_SMALL_TITLE,
+	VIDEO_NAME 
+FROM 
+	VIDEO_TABLE 
+WHERE 
+	VIDEO_ORDER BETWEEN 1 AND 14 
+ORDER BY VIDEO_ORDER
+</select>
+
+<select id="homeBannerVideoList" resultType="vo.HomeVo">
+SELECT
+	SERIAL,
+	VIDEO_TITLE,
+	VIDEO_SMALL_TITLE,
+	VIDEO_NAME
+FROM 
+	BANNER_VIDEO_TABLE 
+order by UPLOAD_DATE DESC
+</select>
+
+
+
+<select id="aboutImageList" resultType="vo.AboutImageVo">
+	select 
+		SERIAL,
+		IMG_NAME,
+		UPLOAD_DATE,
+		IMG_ORDER
+	from 
+		ABOUT_IMAGE
+</select>
+
+
+
+<select id="videoDetail" resultType="vo.HomeVo" parameterType="String">
+SELECT
+	SERIAL,
+	VIDEO_ORDER,
+	VIDEO_TITLE,
+	VIDEO_NAME,
+	VIDEO_SMALL_TITLE,
+	VIDEO_LINK
+FROM 
+	VIDEO_TABLE 
+WHERE 
+	serial = #{_parameter}
+</select>
+
+<select id="latestVideoList" resultType="vo.HomeVo" parameterType="String">
+	select
+		SERIAL,
+		VIDEO_ORDER,
+		VIDEO_TITLE,
+		VIDEO_NAME,
+		UPLOAD_DATE
+	FROM 
+		VIDEO_TABLE
+	where UPLOAD_DATE > (select UPLOAD_DATE from VIDEO_TABLE where serial = #{_parameter})  
+	order by UPLOAD_DATE limit 3
+</select>
+
+<select id="bannerVideoDetail" resultType="vo.HomeVo" parameterType="String">
+SELECT
+	SERIAL,
+	VIDEO_TITLE,
+	VIDEO_NAME,
+	VIDEO_SMALL_TITLE,
+	VIDEO_LINK
+FROM 
+	BANNER_VIDEO_TABLE 
+WHERE 
+	serial = #{_parameter}
+</select>
+
+
+
+<select id="aboutImageTotList" resultType="int">
+	select 
+		count(1)
+	from 
+		ABOUT_IMAGE;
+</select>
+
+<select id="adminAboutImageList" parameterType="page.Page" resultType="vo.AboutImageVo">
+	select rn,SERIAL,IMG_NAME,UPLOAD_DATE,IMG_ORDER from
+	(select
+		@ROWNUM := @ROWNUM + 1 as rn,
+		SERIAL,
+		IMG_NAME,
+		UPLOAD_DATE,
+		IMG_ORDER
+	from 
+		ABOUT_IMAGE,(select @ROWNUM := 0) RN
+	)a where rn between #{startNo} AND #{endNo};
+</select>
+
+
+<insert id="adminAboutInsertImage" parameterType="String">
+INSERT INTO 
+	ABOUT_IMAGE 
+		(	
+			IMG_NAME,
+			IMG_ORDER
+		) 
+	VALUES 
+		(
+			#{_parameter},
+			(SELECT MAX(SERIAL)+1 FROM ABOUT_IMAGE as AI)
+		)
+</insert>
+</mapper>

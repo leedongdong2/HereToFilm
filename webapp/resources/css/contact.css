@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+
+
+
+.contactFont {
+	font-size: 1.3rem;
+	font-family : maruBuri;
+}
+#contactBox{
+	width: 100%;
+	height:60vw;
+	display: flex;
+	margin-bottom: 3vh;
+}
+
+.leftBox{
+	width: 40vw;
+	margin-left : 20%;
+}
+
+.rightBox{
+	width: 60vw;
+}
+
+
+
+.leftTopBox{
+
+	margin-top:30%;
+}
+
+.logoBox {
+	width: 10vw;
+	height: 10vw;
+}
+
+.contactLogo{
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+}
+
+
+#map{
+	width: 23vw;
+	height: 23vw;
+}
+.imageFill{
+	width : 100%;
+	height : 100%;
+	object-fit : fill;
+}
+
+.rightBOtBox{
+	width:100%;
+}
+
+
+.infoLink{
+	text-decoration: none;
+	color: #000000;
+}
+
+.infoLink:hover{
+ color: rgba(26, 26, 26, 0.5);	
+}
+
+
+
+@media screen and (max-width: 479px) {
+   .rightTopBox{
+	width : 20vw;
+	height : 10vh;
+	margin-left : 20%;
+	margin-top : 10%;
+	margin-bottom : 2%;
+}
+}

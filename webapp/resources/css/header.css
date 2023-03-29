@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+
+
+
+
+
+
+.menuBar {
+	display : inline-block;
+	font-size : 2rem;
+	position : absolute;
+	top : 30%;
+	left : 2%;
+	font-weight: bold;
+	font-family : viceCitySans;
+	color: #ffffff;
+}
+.menuBar:hover {
+	cursor: pointer;
+}
+
+.menuBarAbout {
+	display : inline-block;
+	font-size : 2rem;
+	position : absolute;
+	top : 30%;
+	left : 2%;
+	font-weight: bold;
+	color:#ffffff;
+	font-family : viceCitySans;
+}
+.menuBarAbout:hover {
+	cursor: pointer;
+}
+
+.menuBarI {
+	display : inline-block;
+	font-size : 2rem;
+	position : absolute;
+	top : 30%;
+	left : 2%;
+	font-weight: bold;
+	font-family : viceCitySans;
+	color: #000000;
+}
+.menuBarI:hover {
+	cursor: pointer;
+}
+.title {
+	display : inline-block;
+	font-size : 3rem;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-55%, -50%);
+	font-weight: bold;
+	font-family : viceCitySans;
+	color: #ffffff;
+}
+
+
+.homeTitle {
+	display : inline-block;
+	font-size : 3rem;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-55%, -50%);
+	font-weight: bold;
+	font-family : viceCitySans;
+	color: #000000;
+	
+}
+
+.vimeo {
+	display : inline-block;
+	position: absolute;
+	top:40%;
+	right : 3% ;
+	transform:translate(-50%, -3%);
+	font-size : 1.5rem;
+	font-weight: bold;
+	font-family : viceCitySans;
+}
+
+.vimeoAbout {
+	display : inline-block;
+	position: absolute;
+	top:40%;
+	right : 3% ;
+	transform:translate(-50%, -3%);
+	font-size : 1.5rem;
+	right : 3% ;
+	font-weight: bold;
+	font-family : viceCitySans;
+}
+
+#topMenu {
+	height : 8vh;
+	position:absolute;
+	margin-left : 7%;
+	visibility: hidden;
+	top : 42%;
+}
+
+#topMenu ul li{
+	list-style : none;
+	float:left;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.menuLink{
+	display:inline-block;
+	text-decoration:none;                     
+    font-size: 1.1rem;                          
+    font-weight: bold;
+    margin-left:6px;
+	color :#ffffff;
+	font-family : viceCitySans;
+}
+
+.menuLink:hover{
+	color: rgba(200, 200, 200, 0.5);
+}
+
+
+.menuLinkAbout{
+	text-decoration:none;                     
+    font-size: 1rem;                          
+    font-weight: bold;
+    width:40px;
+    margin-left :8px;
+	color : #ffffff;
+	font-family : viceCitySans;
+	
+}
+
+.menuLinkAbout:hover{
+	text-decoration: underline;
+}
+
+.menuLinkI{
+	text-decoration:none;                     
+    font-size: 1rem;                          
+    font-weight: bold;
+    width:40px;
+    margin-left :8px;
+	color :#000000;
+	font-family : viceCitySans;
+}
+
+.menuLinkI:hover{
+	color: rgba(200, 200, 200, 0.5);
+}
+
+.vimeoAboutLink{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.vimeoAboutLink:hover {
+	text-decoration: underline;
+}
+
+.vimeoAboutLinkI{
+	color: #000000;
+	text-decoration: none;
+}
+
+.vimeoAboutLink:hover {
+	text-decoration: underline;
+}
+
+.vimeoLink {
+	text-decoration: none;
+	color:#ffffff;
+}
+
+.vimeoLink:hover {
+color: rgba(200, 200, 200, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+	#topMenu {
+	height : 8vh;
+	position:absolute;
+	margin-left : 9%;
+	visibility: hidden;
+	top : 35%;
+}
+
+.menuLink{
+	margin-left : 2px; 
+}
+}
+
+@media screen and (max-width: 479px) {
+    html {
+        font-size:30%;
+    }
+}
